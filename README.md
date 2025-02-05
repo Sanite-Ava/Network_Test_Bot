@@ -2,9 +2,9 @@
 
 本项目实现了一个 Telegram 机器人，能够通过远程服务器进行网络测试，包括 **Ping 测试** 和 **路由追踪 (NextTrace)**。同时，机器人还提供了管理员命令来管理授权用户和服务器。
 
----
-
 测试demo：[Network Test Bot](https://t.me/linea_network_test_bot)
+
+---
 
 如有问题请联系 [Sanite&Ava](https://t.me/Sanite_Ava)
 
