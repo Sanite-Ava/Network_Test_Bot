@@ -121,7 +121,7 @@ pip install python-telegram-bot paramiko
 
 ---
 
-### 4. 如需使用/nexttrace命令 (可选)
+### 4. 如需使用 `/nexttrace` 命令 (可选)
 
 进入被控机SSH安装NextTrace工具：
 
