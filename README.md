@@ -44,7 +44,7 @@ mybot/
 ├── tasks.py          # 后台任务（执行长时间运行的网络测试，并更新进度提示）
 ├── commands.py       # Telegram 命令处理函数（用户和管理员命令）
 ├── handlers.py       # 消息和按钮回调处理函数（交互式输入的处理）
-└── bot.py           # 主入口文件，构建 Telegram Bot 应用并注册所有处理器
+└── bot.py            # 主入口文件，构建 Telegram Bot 应用并注册所有处理器
 ```
 
 你可以直接参考或修改这些文件，也可以根据需要扩展新的功能。
@@ -108,12 +108,6 @@ cd Network_Test_Bot
 ### 3. 安装依赖库
 
 建议使用 `pip` 安装依赖：
-
-```bash
-pip install -r requirements.txt
-```
-
-如果项目中没有 `requirements.txt` 文件，你可以手动安装：
 
 ```bash
 pip install python-telegram-bot paramiko
