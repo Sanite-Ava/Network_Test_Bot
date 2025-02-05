@@ -1,0 +1,9 @@
+{
+  "TELEGRAM_BOT_TOKEN": "TELEGRAM_BOT_TOKEN",
+  "ADMIN_USERS": [
+  ],
+  "AUTHORIZED_USERS": [
+  ],
+  "SERVERS": [
+  ]
+}
