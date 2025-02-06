@@ -9,7 +9,7 @@
 
 ---
 
-- 测试demo：[Network Test Bot](https://t.me/linea_network_test_bot)
+- 测试demo：[Network Test Bot](https://t.me/linea_network_test_bot) 部署在YxVM提供的机器上
 
 ## 目录
 
