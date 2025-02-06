@@ -11,8 +11,6 @@
 
 - 测试demo：[Network Test Bot](https://t.me/linea_network_test_bot)
 
-- 如有问题请联系 [Sanite&Ava](https://t.me/Sanite_Ava)
-
 ## 目录
 
 - [功能介绍](#功能介绍)
