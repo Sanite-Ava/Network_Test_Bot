@@ -1,0 +1,14 @@
+{
+  "TELEGRAM_BOT_TOKEN": "你的bot token",
+  "ADMIN_USERS": [12345678],
+  "AUTHORIZED_USERS": [12345678, 87654321],
+  "SERVERS": [
+    {
+      "name": "测试服务器",
+      "host": "example.com",
+      "port": 22,
+      "username": "user",
+      "password": "password"
+    }
+  ]
+}
