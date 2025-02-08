@@ -139,6 +139,15 @@ python bot.py
 
 ---
 
+## 使用Docker-compose (可选)
+
+1. 安装Docker以及Docker-compose
+2. 编辑目录下config.json
+3.
+```bash
+docker-compose up -d
+```
+
 ## 使用说明
 
 ### 普通用户功能
