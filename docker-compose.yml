@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  telegram-bot:
+    build: .
+    container_name: telegram-bot
+    restart: always
+    environment:
+      - TZ=Asia/Shanghai
+    volumes:
+      - ./config.json:/app/config.json  # 挂载配置文件
