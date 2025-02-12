@@ -138,14 +138,12 @@ python bot.py
 如果一切配置正确，你的 Telegram 机器人就会开始轮询更新，等待用户命令。
 
 ---
+## 使用Docker (可选)
 
-## 使用Docker-compose (可选)
+- 创建 `config.json`
 
-1. 安装Docker以及Docker-compose
-2. 编辑目录下config.json
-
-```bash
-docker-compose up -d
+```
+docker run -d --name telegram-bot --restart always -v $(pwd)/config.json:/app/config.json saniteava/telegram-bot:latest
 ```
 
 ## 使用说明
