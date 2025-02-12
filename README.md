@@ -60,7 +60,138 @@ mybot/
 
 ---
 
-## 安装和配置
+## Docker Hub 镜像部署
+
+## **1. 前提条件**
+在开始之前，你需要：
+- 一台已经安装了 **Docker** 的服务器或本地环境（Linux / Windows / macOS）
+- 你的 **Telegram Bot Token**
+
+---
+
+## **2. 服务器环境准备**
+### **2.1 安装 Docker**
+如果你的服务器尚未安装 Docker，可以使用以下命令安装：
+#### **Ubuntu/Debian**
+```bash
+sudo apt update && sudo apt install -y docker.io
+```
+#### **CentOS**
+```bash
+sudo yum install -y docker
+```
+#### **macOS**
+使用 [Homebrew](https://brew.sh/) 安装：
+```bash
+brew install --cask docker
+```
+#### **Windows**
+请下载安装 [Docker Desktop](https://www.docker.com/products/docker-desktop/)。
+
+### **2.2 启动 Docker**
+```bash
+sudo systemctl enable docker --now
+```
+
+---
+
+## **3. 拉取 Docker 镜像**
+运行以下命令，从 Docker Hub 拉取最新的 **Telegram 机器人镜像**：
+```bash
+docker pull saniteava/telegram-bot:latest
+```
+
+---
+
+## **4. 配置 `config.json`**
+你的机器人需要一个 `config.json` 文件来存储必要的配置信息。创建 `config.json` 并添加以下内容：
+```json
+{
+  "TELEGRAM_BOT_TOKEN": "你的Bot Token",
+  "ADMIN_USERS": [12345678],
+  "AUTHORIZED_USERS": [12345678, 87654321],
+  "SERVERS": [
+    {
+      "name": "测试服务器",
+      "host": "example.com",
+      "port": 22,
+      "username": "user",
+      "password": "password"
+    }
+  ]
+}
+```
+
+---
+
+## **5. 运行 Docker 容器**
+在 `config.json` 存放的目录下运行以下命令：
+```bash
+docker run -d --name telegram-bot --restart always \
+  -v $(pwd)/config.json:/app/config.json \
+  saniteava/telegram-bot
+```
+### **参数说明**
+- `-d` ：后台运行容器
+- `--name telegram-bot` ：设置容器名称
+- `--restart always` ：确保容器异常退出后自动重启
+- `-v $(pwd)/config.json:/app/config.json` ：将本地 `config.json` 挂载到容器内
+
+---
+
+## **6. 查看容器状态**
+### **查看运行日志**
+```bash
+docker logs -f telegram-bot
+```
+### **检查容器是否在运行**
+```bash
+docker ps
+```
+### **停止和重启容器**
+```bash
+docker stop telegram-bot   # 停止
+docker start telegram-bot  # 启动
+```
+
+---
+
+## **7. 更新镜像**
+如果你的 `Docker Hub` 上有新的更新版本，可以使用以下命令更新：
+```bash
+docker pull saniteava/telegram-bot:latest
+docker stop telegram-bot
+docker rm telegram-bot
+docker run -d --name telegram-bot --restart always \
+  -v $(pwd)/config.json:/app/config.json \
+  saniteava/telegram-bot
+```
+
+---
+
+## **8. 使用 `docker-compose` 部署（可选）**
+如果你希望用 `docker-compose` 管理，可以创建 `docker-compose.yml`：
+```yaml
+version: '3.8'
+
+services:
+  telegram-bot:
+    image: saniteava/telegram-bot:latest
+    container_name: telegram-bot
+    restart: always
+    volumes:
+      - ./config.json:/app/config.json
+```
+然后使用：
+```bash
+docker-compose up -d
+```
+
+至此，你的 Telegram 机器人已经成功部署到 Docker，并可长期稳定运行 🎉。
+
+---
+
+## Shell 部署
 
 ### 1. 克隆项目
 
@@ -138,13 +269,6 @@ python bot.py
 如果一切配置正确，你的 Telegram 机器人就会开始轮询更新，等待用户命令。
 
 ---
-## 使用Docker (可选)
-
-- 创建 `config.json`
-
-```
-docker run -d --name telegram-bot --restart always -v $(pwd)/config.json:/app/config.json saniteava/telegram-bot:latest
-```
 
 ## 使用说明
 
