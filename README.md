@@ -67,6 +67,8 @@ mybot/
 - 一台已经安装了 **Docker** 的服务器或本地环境（Linux / Windows / macOS）
 - 你的 **Telegram Bot Token**
 
+---
+
 ## **2. 服务器环境准备**
 ### **2.1 安装 Docker**
 如果你的服务器尚未安装 Docker，可以使用以下命令安装：
